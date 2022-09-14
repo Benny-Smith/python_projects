@@ -36,6 +36,7 @@ def display_board(board):
     # print("\n\n\n\n\n")
 ############# OR ###############
 # Dude this is awesome
+
     print(f"""
 +-------+-------+-------+
 |       |       |       |
@@ -51,6 +52,9 @@ def display_board(board):
 |       |       |       |
 +-------+-------+-------+
     """)
+
+
+#     I wanna own this bruh.
 def enter_move(board):
     # The function accepts the board's current status, asks the user about their move,
     # checks the input, and updates the board according to the user's decision.

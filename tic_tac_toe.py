@@ -29,8 +29,6 @@ def display_board(board):
 +-------+-------+-------+
     """)
 
-
-#     I wanna own this bruh.
 def enter_move(board):
     # The function accepts the board's current status, asks the user about their move,
     # checks the input, and updates the board according to the user's decision.
@@ -64,26 +62,26 @@ def victory_for(board):
     # the player using 'O's or 'X's has won the game
     # Verify Horizontal O's
     if all([z=='O' for z in board[0]]) or all([z=='O' for z in board[1]]) or all([z=='O' for z in board[2]]):
-        return True
+        return 'O win'
     # Verify Vertical O's
     elif all([z[0] == 'O' for z in board]) or all([z[1] == 'O' for z in board]) or all([z[2] == 'O' for z in board]):
-        return True
+        return 'O win'
     # Verify Diagonal O's
     elif (board[0][0] == 'O' and board[1][1] == 'O' and board[2][2] == 'O'):
-        return True
+        return 'O win'
     elif (board[0][2] == 'O' and board[1][1] == 'O' and board[2][0] == 'O'):
-        return True
+        return 'O win'
     # Verify Horizontal X's
     elif all([z == 'X' for z in board[0]]) or all([z == 'X' for z in board[1]]) or all([z == 'X' for z in board[2]]):
-        return True
+        return 'X win'
     # Verify Vertical X's
     elif all([z[0] == 'X' for z in board]) or all([z[1] == 'X' for z in board]) or all([z[2] == 'X' for z in board]):
-        return True
+        return 'X win'
     # Verify Diagonal X's
     elif (board[0][0] == 'X' and board[1][1] == 'X' and board[2][2] == 'X'):
-        return True
+        return 'X win'
     elif (board[0][2] == 'X' and board[1][1] == 'X' and board[2][0] == 'X'):
-        return True
+        return 'X win'
     return False
 
 def draw_move(board):
@@ -119,14 +117,15 @@ while True:
     board = enter_move(board)
     display_board(board)
     win = victory_for(board)
-    if win == True:
+    if win == 'X win' or win == 'O win':
         break
     board = draw_move(board)
     display_board(board)
     win = victory_for(board)
-    if win == True:
+    if win == 'X win' or win == 'O win':
         break
 
+# VALIDATIONS
 # Verify input is valid
     # 1 - 9
     # A number that has not been clicked

@@ -35,6 +35,7 @@ def display_board(board):
     #         print(f'|       ' * 3, '|', sep='')
     # print("\n\n\n\n\n")
 ############# OR ###############
+# Dude this is awesome
     print(f"""
 +-------+-------+-------+
 |       |       |       |

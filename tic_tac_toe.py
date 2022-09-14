@@ -4,7 +4,7 @@ import time
 # the first move belongs to the computer − it always puts its first 'X' in the middle of the board;
 # all the squares are numbered row by row starting with 1 (see the example session below for reference)
 # the user inputs their move by entering the number of the square they choose −
-    # the number must be valid, i.e., it must be an integer, it must be greater than 0 and less than 10, and it cannot point to a field which is already occupied;
+    # the number must be val1id, i.e., it must be an integer, it must be greater than 0 and less than 10, and it cannot point to a field which is already occupied;
 # the program checks if the game is over − there are four possible verdicts: the game should continue, the game ends with a tie, you win, or the computer wins;
 # the computer responds with its move and the check is repeated;
 # don't implement any form of artificial intelligence − a random field choice made by the computer is good enough for the game.
@@ -94,14 +94,14 @@ def victory_for(board):
     elif all([z[0] == 'X' for z in board]) or all([z[1] == 'X' for z in board]) or all([z[2] == 'X' for z in board]):
         return True
     # Verify Diagonal O's
-    elif (board[0][0] and board[1][1] and board[2][2]) == 'O':
+    elif (board[0][0] == 'O' and board[1][1] == 'O' and board[2][2] == 'O'):
         return True
-    elif (board[0][2] and board[1][1] and board[2][0]) == 'O':
+    elif (board[0][2] == 'O' and board[1][1] == 'O' and board[2][0] == 'O'):
         return True
     # Verify Diagonal X's
-    elif (board[0][0] and board[1][1] and board[2][2]) == 'X':
+    elif (board[0][0] == 'X' and board[1][1] == 'X' and board[2][2] == 'X'):
         return True
-    elif (board[0][2] and board[1][1] and board[2][0]) == 'X':
+    elif (board[0][2] == 'X' and board[1][1] == 'X' and board[2][0] == 'X'):
         return True
     return False
 

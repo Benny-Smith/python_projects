@@ -4,7 +4,7 @@ import time
 # the first move belongs to the computer − it always puts its first 'X' in the middle of the board;
 # all the squares are numbered row by row starting with 1 (see the example session below for reference)
 # the user inputs their move by entering the number of the square they choose −
-    # the number must be val1id, i.e., it must be an integer, it must be greater than 0 and less than 10, and it cannot point to a field which is already occupied;
+# the number must be val1id, i.e., it must be an integer, it must be greater than 0 and less than 10, and it cannot point to a field which is already occupied;
 # the program checks if the game is over − there are four possible verdicts: the game should continue, the game ends with a tie, you win, or the computer wins;
 # the computer responds with its move and the check is repeated;
 # don't implement any form of artificial intelligence − a random field choice made by the computer is good enough for the game.
@@ -13,28 +13,6 @@ import time
 # so that all of the squares may be accessed using the following syntax:
 # board[row][column]
 def display_board(board):
-    # The function accepts one parameter containing the board's current status
-    # and prints it out to the console.
-    # for r in range(4):
-    #     if r == 3:
-    #         print('+-------' * 3, '+', sep='')
-    #     elif r == 0:
-    #         print('+-------' * 3, '+', sep='')
-    #         print(f'|       ' * 3, '|', sep='')
-    #         print(f'|   {board[r][0]}  ', f'   {board[r][1]}  ', f'   {board[r][2]}   |', sep=' |')
-    #         print(f'|       ' * 3, '|', sep='')
-    #     elif r == 1:
-    #         print('+-------' * 3, '+', sep='')
-    #         print(f'|       ' * 3, '|', sep='')
-    #         print(f'|   {board[r][0]}  ', f'   {board[r][1]}  ', f'   {board[r][2]}   |', sep=' |')
-    #         print(f'|       ' * 3, '|', sep='')
-    #     else:
-    #         print('+-------' * 3, '+', sep='')
-    #         print(f'|       ' * 3, '|', sep='')
-    #         print(f'|   {board[r][0]}  ', f'   {board[r][1]}  ', f'   {board[r][2]}   |', sep=' |')
-    #         print(f'|       ' * 3, '|', sep='')
-    # print("\n\n\n\n\n")
-############# OR ###############
     print(f"""
 +-------+-------+-------+
 |       |       |       |
@@ -84,19 +62,19 @@ def victory_for(board):
     # Verify Horizontal O's
     if all([z=='O' for z in board[0]]) or all([z=='O' for z in board[1]]) or all([z=='O' for z in board[2]]):
         return True
-    # Verify Horizontal X's
-    elif all([z=='X' for z in board[0]]) or all([z=='X' for z in board[1]]) or all([z=='X' for z in board[2]]):
-        return True
     # Verify Vertical O's
     elif all([z[0] == 'O' for z in board]) or all([z[1] == 'O' for z in board]) or all([z[2] == 'O' for z in board]):
-        return True
-    # Verify Vertical X's
-    elif all([z[0] == 'X' for z in board]) or all([z[1] == 'X' for z in board]) or all([z[2] == 'X' for z in board]):
         return True
     # Verify Diagonal O's
     elif (board[0][0] == 'O' and board[1][1] == 'O' and board[2][2] == 'O'):
         return True
     elif (board[0][2] == 'O' and board[1][1] == 'O' and board[2][0] == 'O'):
+        return True
+    # Verify Horizontal X's
+    elif all([z == 'X' for z in board[0]]) or all([z == 'X' for z in board[1]]) or all([z == 'X' for z in board[2]]):
+        return True
+    # Verify Vertical X's
+    elif all([z[0] == 'X' for z in board]) or all([z[1] == 'X' for z in board]) or all([z[2] == 'X' for z in board]):
         return True
     # Verify Diagonal X's
     elif (board[0][0] == 'X' and board[1][1] == 'X' and board[2][2] == 'X'):
@@ -145,4 +123,9 @@ while True:
     win = victory_for(board)
     if win == True:
         break
+
+# Verify input is valid
+    # 1 - 9
+    # A number that has not been clicked
+#
 

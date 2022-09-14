@@ -118,6 +118,7 @@ while True:
     display_board(board)
     win = victory_for(board)
     if win == 'X win' or win == 'O win':
+        print(win)
         break
     board = draw_move(board)
     display_board(board)
